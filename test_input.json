@@ -1,0 +1,11 @@
+{
+  "input": {
+    "prompt": "make it inferno",
+    "image_base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Wn8qikAAAAASUVORK5CYII=",
+    "steps": 4,
+    "strength": 0.95,
+    "guidance_scale": 0.0,
+    "seed": 42,
+    "output_format": "png"
+  }
+}
