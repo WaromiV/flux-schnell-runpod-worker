@@ -13,6 +13,9 @@ This repo uses the standard RunPod `def handler(job)` pattern instead of a custo
 │   └── logic.py
 ├── .dockerignore
 ├── .gitignore
+├── .runpod/
+│   ├── hub.json
+│   └── tests.json
 ├── Dockerfile
 ├── handler.py
 ├── README.md
@@ -27,6 +30,7 @@ This repo uses the standard RunPod `def handler(job)` pattern instead of a custo
 - Supports `image_base64`, `image_url`, or `image_path` as the source image
 - Returns the generated image as base64 in JSON
 - Caches models under `/runpod-volume/huggingface` when a network volume is mounted
+- Includes `.runpod/hub.json` and `.runpod/tests.json` for RunPod Hub/GitHub metadata
 
 ## Input Shape
 
