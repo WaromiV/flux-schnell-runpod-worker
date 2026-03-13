@@ -32,6 +32,14 @@ This repo uses the standard RunPod `def handler(job)` pattern instead of a custo
 - Caches models under `/runpod-volume/huggingface` when a network volume is mounted
 - Includes `.runpod/hub.json` and `.runpod/tests.json` for RunPod Hub/GitHub metadata
 
+## Why the Hub Test Is Lightweight
+
+The Hub/GitHub smoke test uses `{"self_test": true}` on purpose.
+
+- FLUX.1-schnell is gated on Hugging Face and needs `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN` at runtime
+- Hub build tests should verify that the worker boots cleanly without forcing a full model download during image validation
+- Real generation requests still require the Hugging Face token on the deployed endpoint
+
 ## Input Shape
 
 ```json
@@ -73,7 +81,7 @@ This repo uses the standard RunPod `def handler(job)` pattern instead of a custo
 - `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`: required for the gated model
 - `MODEL_ID`: defaults to `black-forest-labs/FLUX.1-schnell`
 - `OFFLOAD_MODE`: `none`, `model`, or `sequential`; default is `model`
-- `PRELOAD_MODEL`: `1` loads the model at worker start; `0` delays until first job
+- `PRELOAD_MODEL`: `1` loads the model at worker start; `0` delays until first job; default is `0`
 - `MODEL_CACHE_DIR`: optional override for model cache location
 - `MAX_SEQUENCE_LENGTH`: defaults to `256`
 

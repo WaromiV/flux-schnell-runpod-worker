@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1 \
     HF_HOME=/runpod-volume/huggingface \
     HUGGINGFACE_HUB_CACHE=/runpod-volume/huggingface/hub \
     TRANSFORMERS_CACHE=/runpod-volume/huggingface/hub \
-    PRELOAD_MODEL=1
+    PRELOAD_MODEL=0
 
 WORKDIR /app
 

@@ -6,12 +6,19 @@ import runpod
 from app.logic import generate_image, warmup_model
 
 
-if os.getenv("PRELOAD_MODEL", "1") == "1":
+if os.getenv("PRELOAD_MODEL", "0") == "1":
     warmup_model()
 
 
 def handler(job):
     job_input = job.get("input") or {}
+
+    if job_input.get("self_test"):
+        return {
+            "ok": True,
+            "self_test": True,
+            "model_id": os.getenv("MODEL_ID", "black-forest-labs/FLUX.1-schnell"),
+        }
 
     try:
         return generate_image(job_input)
