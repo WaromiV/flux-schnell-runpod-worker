@@ -6,7 +6,7 @@
   "iconUrl": "https://dummyimage.com/100x100/1f2937/f97316&text=FLUX",
   "config": {
     "runsOn": "GPU",
-    "containerDiskInGb": 20,
+    "containerDiskInGb": 50,
     "gpuIds": "ADA_24",
     "gpuCount": 1,
     "allowedCudaVersions": [
